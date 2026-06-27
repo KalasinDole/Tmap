@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { IconPrinter, IconSearch, IconMapPin, IconShare2, IconQrCode, IconChevronLeft, IconChevronRight, ResourceType, KALASIN_LOCATIONS } from "../constants";
+import { IconPrinter, IconSearch, IconMapPin, IconShare2, IconQrCode, IconChevronLeft, IconChevronRight, IconBarChart, ResourceType, KALASIN_LOCATIONS } from "../constants";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
 import Swal from "sweetalert2";
 

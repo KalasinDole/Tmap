@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { IconSearch, IconChevronLeft, IconChevronRight, ResourceType, KALASIN_LOCATIONS } from "../constants";
+import { IconSearch, IconChevronLeft, IconChevronRight, IconImage, ResourceType, KALASIN_LOCATIONS } from "../constants";
 
     // 4.5 GalleryTab
     const GalleryTab = ({ resources }) => {

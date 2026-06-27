@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IconMap, IconBarChart, IconSettings, IconLogOut, LOGO_URL } from "./constants";
+import { IconMap, IconBarChart, IconSettings, IconLogOut, IconUser, IconImage, LOGO_URL } from "./constants";
 import { getResources } from "./api";
 import PDPAModal from "./components/PDPAModal";
 import MapTab from "./components/MapTab";
