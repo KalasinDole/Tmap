@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { IconFilter, IconChevronDown, IconShare2, ResourceType, KALASIN_LOCATIONS, MARKER_COLORS, createColoredMarkerIcon } from "../constants";
+import { IconFilter, IconChevronDown, IconShare2, ResourceType, KALASIN_LOCATIONS, MARKER_COLORS, createColoredMarkerIcon, fixDriveImageUrl } from "../constants";
 import L from "leaflet";
 import Swal from "sweetalert2";
 

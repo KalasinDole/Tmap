@@ -1,0 +1,303 @@
+
+> frontend@0.0.0 lint
+> oxlint
+
+
+  ! react(jsx-no-undef): 'IconImage' is not defined.
+    ,-[src/components/GalleryTab.jsx:69:130]
+ 68 |           </div>
+ 69 |           {currentItems.length === 0 ? (<div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-16 text-center"><IconImage size={64} className="mx-auto text-gray-300 mb-4" /><p className="text-gray-400 font-medium text-lg">ไม่พบรูปภาพที่ตรงกับตัวกรอง</p></div>) : (
+    :                                                                                                                                  ^^^^^^^^^
+ 70 |             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+    `----
+
+  ! eslint(no-unused-vars): Catch parameter 'error' is caught but never used.
+    ,-[src/App.jsx:17:129]
+ 16 |       useEffect(() => { refreshData(); }, []);
+ 17 |       const refreshData = async () => { setLoading(true); try { const data = await getResources(); setResources(data); } catch (error) { Swal.fire('Error', 'โหลดข้อมูลไม่สำเร็จ', 'error'); } finally { setLoading(false); } };
+    :                                                                                                                                 ^^|^^
+    :                                                                                                                                   `-- 'error' is declared here
+ 18 |       const handleAdminAccess = async () => {
+    `----
+  help: Consider handling this error.
+
+  ! react(jsx-no-undef): 'IconImage' is not defined.
+    ,-[src/App.jsx:36:410]
+ 35 |                 <button onClick={() => setActiveTab('map')} className={`flex-shrink-0 px-6 py-3 rounded-t-xl flex items-center space-x-2 transition-all duration-300 relative overflow-hidden group ${activeTab === 'map' ? 'bg-white/10 text-amber-300 font-bold border-b-4 border-amber-400' : 'text-purple-200 hover:bg-white/5 hover:text-white'}`}><span className="relative z-10 flex items-center gap-2"><IconMap size={20} /> แผนที่</span></button>
+ 36 |                 <button onClick={() => setActiveTab('gallery')} className={`flex-shrink-0 px-6 py-3 rounded-t-xl flex items-center space-x-2 transition-all duration-300 relative overflow-hidden group ${activeTab === 'gallery' ? 'bg-white/10 text-amber-300 font-bold border-b-4 border-amber-400' : 'text-purple-200 hover:bg-white/5 hover:text-white'}`}><span className="relative z-10 flex items-center gap-2"><IconImage size={20} /> แกลเลอรี</span></button>
+    :                                                                                                                                                                                                                                                                                                                                                                                                                          ^^^^^^^^^
+ 37 |                 <button onClick={() => setActiveTab('dashboard')} className={`flex-shrink-0 px-6 py-3 rounded-t-xl flex items-center space-x-2 transition-all duration-300 relative overflow-hidden group ${activeTab === 'dashboard' ? 'bg-white/10 text-amber-300 font-bold border-b-4 border-amber-400' : 'text-purple-200 hover:bg-white/5 hover:text-white'}`}><span className="relative z-10 flex items-center gap-2"><IconBarChart size={20} /> รายงาน</span></button>
+    `----
+
+  ! react(jsx-no-undef): 'IconUser' is not defined.
+    ,-[src/App.jsx:39:436]
+ 38 |                 <div className="flex-grow"></div>
+ 39 |                 <button onClick={handleAdminAccess} className={`flex-shrink-0 px-6 py-3 rounded-t-xl flex items-center space-x-2 transition-all duration-300 relative overflow-hidden group ${activeTab === 'admin' ? 'bg-white/10 text-amber-300 font-bold border-b-4 border-amber-400' : 'text-purple-200 hover:bg-white/5 hover:text-white'}`}><span className="relative z-10 flex items-center gap-2">{isAdmin ? <IconSettings size={20} /> : <IconUser size={20} />} {isAdmin ? 'จัดการข้อมูล' : 'เจ้าหน้าที่'}</span></button>
+    :                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^^^^^^^^
+ 40 |                 {isAdmin && <button onClick={() => { setIsAdmin(false); setActiveTab('map'); }} className="px-4 py-3 bg-red-500/20 hover:bg-red-500/40 text-red-200 hover:text-white transition-colors rounded-lg mx-2 my-1"><IconLogOut size={20} /></button>}
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:23:14]
+ 22 | export const LOGO_URL = "https://img2.pic.in.th/kalasin.jpeg";
+ 23 | export const ResourceType = { PERSON: "แหล่งเรียนรู้ประเภทบุคคล (ปราชญ์ชาวบ้าน)", INNOVATION: "แหล่งเรียนรู้ประเภทสื่อ นวัตกรรม เทคโนโลยีและสิ่งประดิษฐ์", PLACE: "แหล่งเรียนรู้ประเภทสถานที่" };
+    :              ^^^^^^^^^^^^
+ 24 | export const KALASIN_LOCATIONS = [
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:24:14]
+ 23 | export const ResourceType = { PERSON: "แหล่งเรียนรู้ประเภทบุคคล (ปราชญ์ชาวบ้าน)", INNOVATION: "แหล่งเรียนรู้ประเภทสื่อ นวัตกรรม เทคโนโลยีและสิ่งประดิษฐ์", PLACE: "แหล่งเรียนรู้ประเภทสถานที่" };
+ 24 | export const KALASIN_LOCATIONS = [
+    :              ^^^^^^^^^^^^^^^^^
+ 25 |       { district: "สกร.ระดับอำเภอเมืองกาฬสินธุ์", subDistricts: ["ศกร.ระดับตำบลกาฬสินธุ์", "ศกร.ระดับตำบลเหนือ", "ศกร.ระดับตำบลหลุบ", "ศกร.ระดับตำบลไผ่", "ศกร.ระดับตำบลลำปาว", "ศกร.ระดับตำบลลำพาน", "ศกร.ระดับตำบลเชียงเครือ", "ศกร.ระดับตำบลบึงวิชัย", "ศกร.ระดับตำบลห้วยโพธิ์", "ศกร.ระดับตำบลภูปอ", "ศกร.ระดับตำบลภูดิน", "ศกร.ระดับตำบลหนองกุง", "ศกร.ระดับตำบลกลางหมื่น", "ศกร.ระดับตำบลขมิ้น", "ศกร.ระดับตำบลโพนทอง", "ศกร.ระดับตำบลนาจารย์", "ศกร.ระดับตำบลลำคลอง"] },
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:44:14]
+ 43 |     ];
+ 44 | export const MARKER_COLORS = {
+    :              ^^^^^^^^^^^^^
+ 45 |       [ResourceType.PERSON]: { fill: '#7c3aed', label: 'บุคคล (ปราชญ์ชาวบ้าน)' },
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:49:14]
+ 48 |     };
+ 49 | export const createColoredMarkerIcon = (type) => {
+    :              ^^^^^^^^^^^^^^^^^^^^^^^
+ 50 | const config = MARKER_COLORS[type] || { fill: '#6b7280', label: 'อื่นๆ' };
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:54:14]
+ 53 |     // --- 3. SERVICES ---
+ 54 | export const runServerFunction = (functionName, ...args) => {
+    :              ^^^^^^^^^^^^^^^^^
+ 55 |       return new Promise((resolve, reject) => {
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:76:14]
+ 75 |     };
+ 76 | export const getResources = async () => runServerFunction('getSheetData');
+    :              ^^^^^^^^^^^^
+ 77 | export const addResource = async (resource) => runServerFunction('addSheetData', JSON.stringify(resource));
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:77:14]
+ 76 | export const getResources = async () => runServerFunction('getSheetData');
+ 77 | export const addResource = async (resource) => runServerFunction('addSheetData', JSON.stringify(resource));
+    :              ^^^^^^^^^^^
+ 78 | export const deleteResource = async (id) => runServerFunction('deleteSheetData', id);
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/constants.jsx:78:14]
+ 77 | export const addResource = async (resource) => runServerFunction('addSheetData', JSON.stringify(resource));
+ 78 | export const deleteResource = async (id) => runServerFunction('deleteSheetData', id);
+    :              ^^^^^^^^^^^^^^
+ 79 |     // 4.1 PDPAModal
+    `----
+
+  ! eslint(no-unused-vars): Identifier 'useEffect' is imported but never used.
+   ,-[src/components/AdminTab.jsx:1:27]
+ 1 | import React, { useState, useEffect } from "react";
+   :                           ^^^^|^^^^
+   :                               `-- 'useEffect' is imported here
+ 2 | import { IconImage, IconTrash, ResourceType, KALASIN_LOCATIONS } from "../constants";
+   `----
+  help: Consider removing this import.
+
+  ! eslint(no-unused-vars): Identifier 'IconImage' is imported but never used.
+   ,-[src/components/AdminTab.jsx:2:10]
+ 1 | import React, { useState, useEffect } from "react";
+ 2 | import { IconImage, IconTrash, ResourceType, KALASIN_LOCATIONS } from "../constants";
+   :          ^^^^|^^^^
+   :              `-- 'IconImage' is imported here
+ 3 | import Swal from "sweetalert2";
+   `----
+  help: Consider removing this import.
+
+  ! eslint(no-unused-vars): Identifier 'addSheetData' is imported but never used.
+   ,-[src/components/AdminTab.jsx:4:10]
+ 3 | import Swal from "sweetalert2";
+ 4 | import { addSheetData, deleteResource, uploadImageToDrive, migrateExistingImages } from "../api";
+   :          ^^^^^^|^^^^^
+   :                `-- 'addSheetData' is imported here
+ 5 | 
+   `----
+  help: Consider removing this import.
+
+  ! eslint(no-unused-vars): Identifier 'uploadImageToDrive' is imported but never used.
+   ,-[src/components/AdminTab.jsx:4:40]
+ 3 | import Swal from "sweetalert2";
+ 4 | import { addSheetData, deleteResource, uploadImageToDrive, migrateExistingImages } from "../api";
+   :                                        ^^^^^^^^^|^^^^^^^^
+   :                                                 `-- 'uploadImageToDrive' is imported here
+ 5 | 
+   `----
+  help: Consider removing this import.
+
+  ! eslint(no-unused-vars): Identifier 'migrateExistingImages' is imported but never used.
+   ,-[src/components/AdminTab.jsx:4:60]
+ 3 | import Swal from "sweetalert2";
+ 4 | import { addSheetData, deleteResource, uploadImageToDrive, migrateExistingImages } from "../api";
+   :                                                            ^^^^^^^^^^|^^^^^^^^^^
+   :                                                                      `-- 'migrateExistingImages' is imported here
+ 5 | 
+   `----
+  help: Consider removing this import.
+
+  ! eslint(no-unused-vars): Catch parameter 'error' is caught but never used.
+    ,-[src/components/AdminTab.jsx:66:18]
+ 65 |           Swal.fire({ icon: 'success', title: 'บันทึกสำเร็จ', text: finalImageUrl ? 'รูปภาพถูกเก็บใน Google Drive' : '' });
+ 66 |         } catch (error) { Swal.fire('ผิดพลาด', 'เกิดข้อผิดพลาดในการบันทึกข้อมูล', 'error'); }
+    :                  ^^|^^
+    :                    `-- 'error' is declared here
+ 67 |         finally { setIsSubmitting(false); }
+    `----
+  help: Consider handling this error.
+
+  ! eslint(no-unused-vars): Catch parameter 'error' is caught but never used.
+    ,-[src/components/AdminTab.jsx:71:305]
+ 70 |         Swal.fire({ title: 'ยืนยันการลบ?', text: "คุณไม่สามารถกู้คืนข้อมูลนี้ได้", icon: 'warning', showCancelButton: true, confirmButtonColor: '#d33', confirmButtonText: 'ลบข้อมูล', cancelButtonText: 'ยกเลิก' }).then(async (result) => {
+ 71 |           if (result.isConfirmed) { Swal.fire({ title: 'กำลังลบ...', allowOutsideClick: false, didOpen: () => Swal.showLoading() }); try { await deleteResource(id); onDataUpdate(); Swal.fire('ลบสำเร็จ!', 'ข้อมูลถูกลบแล้ว', 'success'); } catch (error) { Swal.fire('ผิดพลาด', 'ไม่สามารถลบข้อมูลได้', 'error'); } }
+    :                                                                                                                                                                                                                                               ^^|^^
+    :                                                                                                                                                                                                                                                 `-- 'error' is declared here
+ 72 |         });
+    `----
+  help: Consider handling this error.
+
+  ! eslint(no-unused-vars): Variable 'fixDriveImageUrl' is declared but never used. Unused variables should start with a '_'.
+     ,-[src/components/AdminTab.jsx:114:11]
+ 113 |     // Helper: แปลง Google Drive URL ให้ใช้งานได้ทุก browser
+ 114 |     const fixDriveImageUrl = (url) => {
+     :           ^^^^^^^^|^^^^^^^
+     :                   `-- 'fixDriveImageUrl' is declared here
+ 115 |       if (!url) return '';
+     `----
+  help: Consider removing this declaration.
+
+  ! react(jsx-no-undef): 'IconSettings' is not defined.
+    ,-[src/components/AdminTab.jsx:78:141]
+ 77 |           <div className="bg-white p-6 md:p-8 rounded-3xl shadow-xl border-t-8 border-purple-600">
+ 78 |             <h2 className="text-2xl font-bold mb-6 text-purple-900 flex items-center gap-3"><span className="bg-purple-100 p-2 rounded-lg"><IconSettings size={24} /></span> เพิ่มข้อมูลแหล่งเรียนรู้</h2>
+    :                                                                                                                                             ^^^^^^^^^^^^
+ 79 |             <form onSubmit={handleSubmit} className="space-y-5">
+    `----
+
+  ! eslint(no-unused-vars): Identifier 'IconMapPin' is imported but never used.
+   ,-[src/components/DashboardTab.jsx:2:35]
+ 1 | import React, { useState, useEffect, useMemo } from "react";
+ 2 | import { IconPrinter, IconSearch, IconMapPin, IconShare2, IconQrCode, IconChevronLeft, IconChevronRight, ResourceType, KALASIN_LOCATIONS } from "../constants";
+   :                                   ^^^^^|^^^^
+   :                                        `-- 'IconMapPin' is imported here
+ 3 | import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+   `----
+  help: Consider removing this import.
+
+  ! eslint(no-unused-vars): Identifier 'Tooltip' is imported but never used.
+   ,-[src/components/DashboardTab.jsx:3:54]
+ 2 | import { IconPrinter, IconSearch, IconMapPin, IconShare2, IconQrCode, IconChevronLeft, IconChevronRight, ResourceType, KALASIN_LOCATIONS } from "../constants";
+ 3 | import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+   :                                                      ^^^|^^^
+   :                                                         `-- 'Tooltip' is imported here
+ 4 | import Swal from "sweetalert2";
+   `----
+  help: Consider removing this import.
+
+  ! eslint(no-unused-vars): Identifier 'Legend' is imported but never used.
+   ,-[src/components/DashboardTab.jsx:3:63]
+ 2 | import { IconPrinter, IconSearch, IconMapPin, IconShare2, IconQrCode, IconChevronLeft, IconChevronRight, ResourceType, KALASIN_LOCATIONS } from "../constants";
+ 3 | import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+   :                                                               ^^^|^^
+   :                                                                  `-- 'Legend' is imported here
+ 4 | import Swal from "sweetalert2";
+   `----
+  help: Consider removing this import.
+
+  x react-hooks(rules-of-hooks): React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render.
+    ,-[src/components/DashboardTab.jsx:16:28]
+ 15 |       if (!BarChart || !PieChart) return <div className="p-12 text-center text-purple-500 bg-white rounded-3xl shadow-lg border border-purple-50">กำลังโหลดกราฟ...</div>;
+ 16 |       const filteredData = useMemo(() => { let data = resources; if (filterDistrict !== 'all') data = data.filter(r => r.district === filterDistrict); if (filterSubDistrict !== 'all') data = data.filter(r => r.subDistrict === filterSubDistrict); if (searchQuery.trim()) { const q = searchQuery.trim().toLowerCase(); data = data.filter(r => r.name.toLowerCase().includes(q) || (r.description && r.description.toLowerCase().includes(q)) || (r.contactInfo && r.contactInfo.includes(q))); } return data; }, [resources, filterDistrict, filterSubDistrict, searchQuery]);
+    :                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    :                                                                                                                                                                                                                                                                                                        `-- This Hook call is not reachable on every render path.
+ 17 |       const comparisonData = useMemo(() => { return KALASIN_LOCATIONS.map(loc => { const dItems = resources.filter(r => r.district === loc.district); const shortName = loc.district.replace('สกร.ระดับอำเภอ', ''); const person = dItems.filter(r => r.type === ResourceType.PERSON).length; const innovation = dItems.filter(r => r.type === ResourceType.INNOVATION).length; const place = dItems.filter(r => r.type === ResourceType.PLACE).length; return { name: shortName, total: dItems.length, person, innovation, place, subDistrictCount: loc.subDistricts.length, coverage: loc.subDistricts.filter(sd => dItems.some(r => r.subDistrict === sd)).length }; }).sort((a, b) => b.total - a.total); }, [resources]);
+    `----
+  help: Move the Hook call before the condition, or call it unconditionally and branch inside the Hook/effect instead.
+
+  x react-hooks(rules-of-hooks): React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render.
+    ,-[src/components/DashboardTab.jsx:17:30]
+ 16 |       const filteredData = useMemo(() => { let data = resources; if (filterDistrict !== 'all') data = data.filter(r => r.district === filterDistrict); if (filterSubDistrict !== 'all') data = data.filter(r => r.subDistrict === filterSubDistrict); if (searchQuery.trim()) { const q = searchQuery.trim().toLowerCase(); data = data.filter(r => r.name.toLowerCase().includes(q) || (r.description && r.description.toLowerCase().includes(q)) || (r.contactInfo && r.contactInfo.includes(q))); } return data; }, [resources, filterDistrict, filterSubDistrict, searchQuery]);
+ 17 |       const comparisonData = useMemo(() => { return KALASIN_LOCATIONS.map(loc => { const dItems = resources.filter(r => r.district === loc.district); const shortName = loc.district.replace('สกร.ระดับอำเภอ', ''); const person = dItems.filter(r => r.type === ResourceType.PERSON).length; const innovation = dItems.filter(r => r.type === ResourceType.INNOVATION).length; const place = dItems.filter(r => r.type === ResourceType.PLACE).length; return { name: shortName, total: dItems.length, person, innovation, place, subDistrictCount: loc.subDistricts.length, coverage: loc.subDistricts.filter(sd => dItems.some(r => r.subDistrict === sd)).length }; }).sort((a, b) => b.total - a.total); }, [resources]);
+    :                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    :                                                                                                                                                                                                                                                                                                                                                                             `-- This Hook call is not reachable on every render path.
+ 18 |       const subDistrictData = useMemo(() => { if (filterDistrict === 'all') return []; const dItems = filteredData; const counts = {}; dItems.forEach(r => { const shortSub = r.subDistrict.replace('ศกร.ระดับตำบล', ''); counts[shortSub] = (counts[shortSub] || 0) + 1; }); const found = KALASIN_LOCATIONS.find(d => d.district === filterDistrict); if (found) { found.subDistricts.forEach(sd => { const shortSub = sd.replace('ศกร.ระดับตำบล', ''); if (!counts[shortSub]) counts[shortSub] = 0; }); } return Object.keys(counts).map(key => ({ name: key, value: counts[key] })).sort((a, b) => b.value - a.value); }, [filteredData, filterDistrict]);
+    `----
+  help: Move the Hook call before the condition, or call it unconditionally and branch inside the Hook/effect instead.
+
+  x react-hooks(rules-of-hooks): React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render.
+    ,-[src/components/DashboardTab.jsx:18:31]
+ 17 |       const comparisonData = useMemo(() => { return KALASIN_LOCATIONS.map(loc => { const dItems = resources.filter(r => r.district === loc.district); const shortName = loc.district.replace('สกร.ระดับอำเภอ', ''); const person = dItems.filter(r => r.type === ResourceType.PERSON).length; const innovation = dItems.filter(r => r.type === ResourceType.INNOVATION).length; const place = dItems.filter(r => r.type === ResourceType.PLACE).length; return { name: shortName, total: dItems.length, person, innovation, place, subDistrictCount: loc.subDistricts.length, coverage: loc.subDistricts.filter(sd => dItems.some(r => r.subDistrict === sd)).length }; }).sort((a, b) => b.total - a.total); }, [resources]);
+ 18 |       const subDistrictData = useMemo(() => { if (filterDistrict === 'all') return []; const dItems = filteredData; const counts = {}; dItems.forEach(r => { const shortSub = r.subDistrict.replace('ศกร.ระดับตำบล', ''); counts[shortSub] = (counts[shortSub] || 0) + 1; }); const found = KALASIN_LOCATIONS.find(d => d.district === filterDistrict); if (found) { found.subDistricts.forEach(sd => { const shortSub = sd.replace('ศกร.ระดับตำบล', ''); if (!counts[shortSub]) counts[shortSub] = 0; }); } return Object.keys(counts).map(key => ({ name: key, value: counts[key] })).sort((a, b) => b.value - a.value); }, [filteredData, filterDistrict]);
+    :                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    :                                                                                                                                                                                                                                                                                                                                             `-- This Hook call is not reachable on every render path.
+ 19 |       useEffect(() => { setCurrentPage(1); }, [filteredData]);
+    `----
+  help: Move the Hook call before the condition, or call it unconditionally and branch inside the Hook/effect instead.
+
+  x react-hooks(rules-of-hooks): React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render.
+    ,-[src/components/DashboardTab.jsx:19:7]
+ 18 |       const subDistrictData = useMemo(() => { if (filterDistrict === 'all') return []; const dItems = filteredData; const counts = {}; dItems.forEach(r => { const shortSub = r.subDistrict.replace('ศกร.ระดับตำบล', ''); counts[shortSub] = (counts[shortSub] || 0) + 1; }); const found = KALASIN_LOCATIONS.find(d => d.district === filterDistrict); if (found) { found.subDistricts.forEach(sd => { const shortSub = sd.replace('ศกร.ระดับตำบล', ''); if (!counts[shortSub]) counts[shortSub] = 0; }); } return Object.keys(counts).map(key => ({ name: key, value: counts[key] })).sort((a, b) => b.value - a.value); }, [filteredData, filterDistrict]);
+ 19 |       useEffect(() => { setCurrentPage(1); }, [filteredData]);
+    :       ^^^^^^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    :                                  `-- This Hook call is not reachable on every render path.
+ 20 |       const indexOfLastItem = currentPage * itemsPerPage;
+    `----
+  help: Move the Hook call before the condition, or call it unconditionally and branch inside the Hook/effect instead.
+
+  x react-hooks(rules-of-hooks): React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render.
+    ,-[src/components/DashboardTab.jsx:24:24]
+ 23 |       const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+ 24 |       const typeData = useMemo(() => { const counts = {}; Object.values(ResourceType).forEach(t => counts[t] = 0); filteredData.forEach(r => { if (counts[r.type] !== undefined) counts[r.type]++; }); return Object.keys(counts).map(key => ({ name: key.replace('แหล่งเรียนรู้ประเภท', ''), fullName: key, value: counts[key] })); }, [filteredData]);
+    :                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    :                                                                                                                                                                                      `-- This Hook call is not reachable on every render path.
+ 25 |       const districtData = useMemo(() => { const counts = {}; KALASIN_LOCATIONS.forEach(d => { const shortName = d.district.replace('สกร.ระดับอำเภอ', ''); counts[shortName] = 0; }); filteredData.forEach(r => { const shortName = r.district.replace('สกร.ระดับอำเภอ', ''); counts[shortName] = (counts[shortName] || 0) + 1; }); return Object.keys(counts).map(key => ({ name: key, value: counts[key] })).sort((a, b) => b.value - a.value); }, [filteredData]);
+    `----
+  help: Move the Hook call before the condition, or call it unconditionally and branch inside the Hook/effect instead.
+
+  x react-hooks(rules-of-hooks): React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render.
+    ,-[src/components/DashboardTab.jsx:25:28]
+ 24 |       const typeData = useMemo(() => { const counts = {}; Object.values(ResourceType).forEach(t => counts[t] = 0); filteredData.forEach(r => { if (counts[r.type] !== undefined) counts[r.type]++; }); return Object.keys(counts).map(key => ({ name: key.replace('แหล่งเรียนรู้ประเภท', ''), fullName: key, value: counts[key] })); }, [filteredData]);
+ 25 |       const districtData = useMemo(() => { const counts = {}; KALASIN_LOCATIONS.forEach(d => { const shortName = d.district.replace('สกร.ระดับอำเภอ', ''); counts[shortName] = 0; }); filteredData.forEach(r => { const shortName = r.district.replace('สกร.ระดับอำเภอ', ''); counts[shortName] = (counts[shortName] || 0) + 1; }); return Object.keys(counts).map(key => ({ name: key, value: counts[key] })).sort((a, b) => b.value - a.value); }, [filteredData]);
+    :                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    :                                                                                                                                                                                                                                               `-- This Hook call is not reachable on every render path.
+ 26 |       const availableSubDistricts = useMemo(() => { if (filterDistrict === 'all') return []; const found = KALASIN_LOCATIONS.find(d => d.district === filterDistrict); return found ? found.subDistricts : []; }, [filterDistrict]);
+    `----
+  help: Move the Hook call before the condition, or call it unconditionally and branch inside the Hook/effect instead.
+
+  x react-hooks(rules-of-hooks): React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render.
+    ,-[src/components/DashboardTab.jsx:26:37]
+ 25 |       const districtData = useMemo(() => { const counts = {}; KALASIN_LOCATIONS.forEach(d => { const shortName = d.district.replace('สกร.ระดับอำเภอ', ''); counts[shortName] = 0; }); filteredData.forEach(r => { const shortName = r.district.replace('สกร.ระดับอำเภอ', ''); counts[shortName] = (counts[shortName] || 0) + 1; }); return Object.keys(counts).map(key => ({ name: key, value: counts[key] })).sort((a, b) => b.value - a.value); }, [filteredData]);
+ 26 |       const availableSubDistricts = useMemo(() => { if (filterDistrict === 'all') return []; const found = KALASIN_LOCATIONS.find(d => d.district === filterDistrict); return found ? found.subDistricts : []; }, [filterDistrict]);
+    :                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^|^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    :                                                                                                                                    `-- This Hook call is not reachable on every render path.
+ 27 |       const handlePrint = () => { setIsPrinting(true); setTimeout(() => { window.print(); setIsPrinting(false); }, 500); };
+    `----
+  help: Move the Hook call before the condition, or call it unconditionally and branch inside the Hook/effect instead.
+
+  ! react(jsx-no-undef): 'IconBarChart' is not defined.
+    ,-[src/components/DashboardTab.jsx:45:252]
+ 44 |             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10 no-print">
+ 45 |               <div className="bg-gradient-to-br from-purple-50 to-white p-8 rounded-3xl text-center border border-purple-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden"><div className="absolute top-0 right-0 p-4 opacity-10"><IconBarChart size={64} className="text-purple-500" /></div><h3 className="text-gray-500 font-bold mb-2 uppercase tracking-wider text-xs">ทั้งหมด</h3><p className="text-5xl md:text-6xl font-black text-purple-700 tracking-tighter">{filteredData.length}</p><p className="text-sm text-gray-400 mt-2 font-medium">แห่ง</p></div>
+    :                                                                                                                                                                                                                                                            ^^^^^^^^^^^^
+ 46 |               {typeData.map((t) => (<div key={t.name} className="bg-white p-8 rounded-3xl text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"><div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div><h3 className="text-gray-600 font-bold mb-2 truncate px-2 text-sm">{t.name}</h3><p className="text-4xl md:text-5xl font-extrabold text-gray-800">{t.value}</p><p className="text-sm text-gray-400 mt-2 font-medium">แห่ง</p></div>))}
+    `----
+
+  ! File is too long to fit on the screen
+  help: src/components/DashboardTab.jsx seems like a minified file
+
+Found 26 warnings and 7 errors.
+Finished in 6ms on 11 files with 91 rules using 10 threads.

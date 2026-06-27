@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { IconSearch, IconChevronLeft, IconChevronRight, IconImage, ResourceType, KALASIN_LOCATIONS } from "../constants";
+import { IconSearch, IconChevronLeft, IconChevronRight, IconImage, ResourceType, KALASIN_LOCATIONS, fixDriveImageUrl } from "../constants";
+import Swal from "sweetalert2";
 
     // 4.5 GalleryTab
     const GalleryTab = ({ resources }) => {

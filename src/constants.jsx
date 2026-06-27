@@ -46,34 +46,21 @@ export const MARKER_COLORS = {
       [ResourceType.INNOVATION]: { fill: '#f59e0b', label: 'สื่อ นวัตกรรม เทคโนโลยี' },
       [ResourceType.PLACE]: { fill: '#10b981', label: 'สถานที่' },
     };
+// Helper: แปลง Google Drive URL ให้ใช้งานได้ทุก browser
+export const fixDriveImageUrl = (url) => {
+  if (!url) return '';
+  const thumbMatch = url.match(/drive\.google\.com\/thumbnail\?id=([^&]+)/);
+  if (thumbMatch) return 'https://lh3.googleusercontent.com/d/' + thumbMatch[1] + '=w800';
+  const ucMatch = url.match(/drive\.google\.com\/uc\?.*id=([^&]+)/);
+  if (ucMatch) return 'https://lh3.googleusercontent.com/d/' + ucMatch[1];
+  const fileMatch = url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+  if (fileMatch) return 'https://lh3.googleusercontent.com/d/' + fileMatch[1];
+  return url;
+};
 export const createColoredMarkerIcon = (type) => {
-const config = MARKER_COLORS[type] || { fill: '#6b7280', label: 'อื่นๆ' };
-      return L.divIcon({ className: '', html: '<div style="position:relative;width:30px;height:42px;"><svg width="30" height="42" viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35));"><path d="M15 0C6.716 0 0 6.716 0 15c0 11.25 15 27 15 27s15-15.75 15-27C30 6.716 23.284 0 15 0z" fill="' + config.fill + '" stroke="white" stroke-width="2"/><circle cx="15" cy="14" r="6" fill="white" opacity="0.9"/></svg></div>', iconSize: [30, 42], iconAnchor: [15, 42], popupAnchor: [0, -42] });
-    };
-    // --- 3. SERVICES ---
-export const runServerFunction = (functionName, ...args) => {
-      return new Promise((resolve, reject) => {
-        if (typeof google === 'undefined' || !google.script) {
-const mockData = localStorage.getItem('KALASIN_TMAP_DATA');
-const parsedData = mockData ? JSON.parse(mockData) : [];
-          if (functionName === 'getSheetData') { setTimeout(() => resolve(parsedData), 500); }
-          else if (functionName === 'addSheetData') {
-const newData = [...parsedData, JSON.parse(args[0])];
-            localStorage.setItem('KALASIN_TMAP_DATA', JSON.stringify(newData));
-            setTimeout(() => resolve(true), 500);
-          } else if (functionName === 'uploadImageToDrive') {
-            setTimeout(() => resolve(args[0]), 500);
-          } else if (functionName === 'deleteSheetData') {
-const newData = parsedData.filter(i => i.id !== args[0]);
-            localStorage.setItem('KALASIN_TMAP_DATA', JSON.stringify(newData));
-            setTimeout(() => resolve(true), 500);
-          }
-          return;
-        }
-        google.script.run.withSuccessHandler(resolve).withFailureHandler(reject)[functionName](...args);
-      });
-    };
-export const getResources = async () => runServerFunction('getSheetData');
-export const addResource = async (resource) => runServerFunction('addSheetData', JSON.stringify(resource));
-export const deleteResource = async (id) => runServerFunction('deleteSheetData', id);
-    // 4.1 PDPAModal
+  const config = MARKER_COLORS[type] || { fill: '#6b7280', label: 'อื่นๆ' };
+  if (typeof window !== 'undefined' && window.L) {
+    return window.L.divIcon({ className: '', html: '<div style="position:relative;width:30px;height:42px;"><svg width="30" height="42" viewBox="0 0 30 42" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35));"><path d="M15 0C6.716 0 0 6.716 0 15c0 11.25 15 27 15 27s15-15.75 15-27C30 6.716 23.284 0 15 0z" fill="' + config.fill + '" stroke="white" stroke-width="2"/><circle cx="15" cy="14" r="6" fill="white" opacity="0.9"/></svg></div>', iconSize: [30, 42], iconAnchor: [15, 42], popupAnchor: [0, -42] });
+  }
+  return null;
+};
