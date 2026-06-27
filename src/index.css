@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #4c1d95;
+  --color-secondary: #7c3aed;
+  --color-accent: #fbbf24;
+}
+
+body {
+  font-family: 'Sarabun', sans-serif;
+  background-color: #f3f0ff;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media print {
+  body { background-color: white; }
+  .no-print { display: none !important; }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f3f4f6; border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: #c4b5fd; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
